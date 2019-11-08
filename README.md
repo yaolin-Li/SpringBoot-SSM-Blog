@@ -7,4 +7,8 @@
     11/8:完成BlogApplication.java学习,这个文件用来实现客户和管理员接入映射.
 2.接下来看controller文件夹下的文件
     先从用户这边的开始看
-        学习InitComponent.java,
+        InitComponent.java,
+        BlogController,
+        BlogerController,
+        ShiroRealm,
+        11/9:从BlogerController.java跳转到BlogAdminController.java,

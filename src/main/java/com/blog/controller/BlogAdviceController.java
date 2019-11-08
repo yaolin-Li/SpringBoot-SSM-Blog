@@ -21,6 +21,8 @@ import java.util.Map;
 
 
 /**
+ * 来自index.xml33行
+ * <li><a href="javascript:window.open('/blogAdvice/preAdvice.do','newwindow')" th:title="留言建议" >留言建议</a></li>
  * Created by ldb on 2016/9/22.
  */
 @Controller
@@ -44,10 +46,21 @@ public class BlogAdviceController {
 		List<BlogAdvice> blogAdviceList=blogAdviceService.findBlogAdviceList(map);
 		request.setAttribute("blogAdviceList", blogAdviceList);
 		request.setAttribute("pageCode", pageCode);
+		/**
+		 * 和之前的差不多，就是获取评论，放到request里，转到foreground/blogAdvice/blogAdvice.html
+		 * 然后blogAdvice.html就能从request里提取信息，生成页面
+		 */
 		return "foreground/blogAdvice/blogAdvice";
 	}
 
-
+	/**
+	 * 看到这里有BlogAdvice，先去看BlogAdviceController.java和BlogAdviceAdminController.java
+	 * @param blogAdvice
+	 * @param response
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("save")
 	public String save(BlogAdvice blogAdvice,HttpServletResponse response,HttpServletRequest request)throws Exception{
 		String userIP=request.getRemoteAddr();//获取IP

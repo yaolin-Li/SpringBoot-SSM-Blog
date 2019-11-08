@@ -28,10 +28,13 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+        //subject.getPrincipals()获取用户名
         String userName=(String)token.getPrincipal();
+        //获取用户数据
         Bloger bloger=blogerService.getByUserName(userName);
         if(bloger!=null){
             SecurityUtils.getSubject().getSession().setAttribute("currentBloger", bloger);
+            //验证
             AuthenticationInfo authcInfo=new SimpleAuthenticationInfo(bloger.getUserName(),bloger.getPassword(),"xx");
             return authcInfo;
         }else{
