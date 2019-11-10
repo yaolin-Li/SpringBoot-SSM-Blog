@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 这里开始就是后端的接口。这里面的映射大多都是从templates/background/main.html中映射过来的。
  * Created by ldb on 2016/11/1.
  */
 @Controller
